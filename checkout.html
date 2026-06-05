@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Enjoy Spoon Premium Mukhwas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="checkout-body">
+    <div class="announcement">
+      <span>Secure checkout for Enjoy Spoon orders</span>
+      <span>WhatsApp confirmation after order</span>
+    </div>
+
+    <header class="header">
+      <a class="logo" href="index.html" aria-label="Enjoy Spoon home">
+        <img src="images/logo.png" alt="Enjoy Spoon">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#craft">Craft</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="header-phone" href="tel:+919979955474">+91 99799 55474</a>
+        <a class="checkout-back" href="index.html#products">Continue Shopping</a>
+      </div>
+    </header>
+
+    <main class="checkout-page">
+      <section class="checkout-hero">
+        <div class="container checkout-hero-grid">
+          <div>
+            <span class="eyebrow">Final Step</span>
+            <h1>Complete your Enjoy Spoon order.</h1>
+            <p>
+              Add your delivery details, review your cart, and place the order.
+              Please complete payment through the GPay QR code below and send
+              the payment screenshot on WhatsApp for confirmation.
+            </p>
+          </div>
+          <div class="checkout-assurance">
+            <div>
+              <strong>Freshly Packed</strong>
+              <span>Premium jars sealed for delivery</span>
+            </div>
+            <div>
+              <strong>Quick Support</strong>
+              <span>Payment screenshot confirmation on WhatsApp</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container checkout-shell">
+        <form class="checkout-form-panel" id="orderForm">
+          <div class="panel-heading">
+            <span>Delivery Details</span>
+            <h2>Where should we send your mukhwas?</h2>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-group">
+              <label for="mobile">Mobile Number</label>
+              <input type="tel" id="mobile" name="mobile" autocomplete="tel" pattern="[0-9+\-\s]{10,16}" required>
+            </div>
+            <div class="form-group">
+              <label for="pincode">Pincode</label>
+              <input type="text" id="pincode" name="pincode" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{6}" maxlength="6" required>
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" autocomplete="address-level2" required>
+            </div>
+            <div class="form-group full-span">
+              <label for="address">Complete Address</label>
+              <textarea id="address" name="address" autocomplete="street-address" required></textarea>
+            </div>
+            <div class="form-group full-span">
+              <label for="notes">Order Notes <span>Optional</span></label>
+              <textarea id="notes" name="notes" placeholder="Any delivery instruction or gifting note"></textarea>
+            </div>
+          </div>
+
+          <div class="payment-box">
+            <div class="payment-copy">
+              <span>Payment Method</span>
+              <p>
+                GPay QR code પર payment કરો અને payment screenshot WhatsApp પર મોકલો.
+              </p>
+            </div>
+            <div class="gpay-card">
+              <img src="images/GooglePay_QR.png" alt="Google Pay QR code for Enjoy Spoon payment">
+              <div>
+                <strong>Google Pay QR</strong>
+                <span>Scan, pay total amount, then WhatsApp screenshot.</span>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="place-order-btn" id="placeOrderBtn">Send Order on WhatsApp</button>
+          <p class="checkout-note">Payment screenshot WhatsApp પર મોકલ્યા પછી order confirm થશે.</p>
+        </form>
+
+        <aside class="order-summary-panel" aria-label="Order summary">
+          <div class="summary-top">
+            <span>Your Cart</span>
+            <h2>Order Summary</h2>
+          </div>
+          <div id="summaryItems" class="summary-items"></div>
+
+          <div class="summary-pricing">
+            <div>
+              <span>Subtotal</span>
+              <strong>&#8377;<span id="summarySubtotal">0</span></strong>
+            </div>
+            <div>
+              <span>Delivery</span>
+              <strong id="deliveryText">Free</strong>
+            </div>
+            <div class="summary-total">
+              <span>Total</span>
+              <strong>&#8377;<span id="summaryTotal">0</span></strong>
+            </div>
+          </div>
+
+          <div class="summary-benefits">
+            <div>
+              <strong>100% Natural</strong>
+              <span>No artificial colors</span>
+            </div>
+            <div>
+              <strong>Premium Packed</strong>
+              <span>Fresh jar format</span>
+            </div>
+            <div>
+              <strong>GPay Payment</strong>
+              <span>Screenshot required on WhatsApp</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer checkout-footer">
+      <div class="container footer-top">
+        <div>
+          <img src="images/logo.png" alt="Enjoy Spoon">
+          <p>Premium mukhwas for every home, every meal, and every shared table.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="index.html#products">Products</a>
+          <a href="index.html#craft">Craft</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>+91 99799 55474</p>
+          <p>ankitbalar01@gmail.com</p>
+          <a href="https://wa.me/919979955474">WhatsApp Order</a>
+        </div>
+      </div>
+      <div class="copyright">&#169; 2026 Enjoy Spoon. All rights reserved.</div>
+    </footer>
+
+    <script>
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const summary = document.getElementById("summaryItems");
+      const subtotalElement = document.getElementById("summarySubtotal");
+      const totalElement = document.getElementById("summaryTotal");
+      const placeOrderBtn = document.getElementById("placeOrderBtn");
+      const orderForm = document.getElementById("orderForm");
+      let total = 0;
+
+      function renderSummary() {
+        summary.innerHTML = "";
+
+        if (!cart.length) {
+          summary.innerHTML = `
+            <div class="summary-empty">
+              <strong>Your cart is empty</strong>
+              <p>Add your favorite Enjoy Spoon combo before checkout.</p>
+              <a href="index.html#products">Shop Products</a>
+            </div>
+          `;
+          placeOrderBtn.disabled = true;
+          subtotalElement.innerText = "0";
+          totalElement.innerText = "0";
+          return;
+        }
+
+        cart.forEach(item => {
+          const subtotal = item.price * item.quantity;
+          total += subtotal;
+          summary.innerHTML += `
+            <div class="summary-item">
+              <img src="${item.image || "images/product.png"}" alt="${item.name}">
+              <div>
+                <h3>${item.name}</h3>
+                <p>Qty ${item.quantity} x &#8377;${item.price}</p>
+              </div>
+              <strong>&#8377;${subtotal}</strong>
+            </div>
+          `;
+        });
+
+        subtotalElement.innerText = total;
+        totalElement.innerText = total;
+      }
+
+      renderSummary();
+
+      orderForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        if (!cart.length) {
+          window.location.href = "index.html#products";
+          return;
+        }
+
+        placeOrderBtn.disabled = true;
+        placeOrderBtn.innerText = "Preparing Order...";
+
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+        const pincode = document.getElementById("pincode").value.trim();
+        const city = document.getElementById("city").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const notes = document.getElementById("notes").value.trim();
+
+        let productText = "";
+        cart.forEach(item => {
+          productText += `${item.name} x${item.quantity} - Rs.${item.price * item.quantity}\n`;
+        });
+
+        const orderData = {
+          firstName,
+          lastName,
+          email,
+          mobile,
+          pincode,
+          city,
+          address,
+          notes,
+          paymentMethod: "GPay QR payment - screenshot required on WhatsApp",
+          products: productText,
+          total
+        };
+
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzG5pZxHvJGgls8wWSKPxqKf3eVdh1_Oy-Bj5rCxAnx_B394lf2XF8w2MyK-YQYp0loTQ/exec";
+
+        try {
+          await fetch(SCRIPT_URL, {
+            method: "POST",
+            body: JSON.stringify(orderData)
+          });
+        } catch (err) {
+          console.log(err);
+        }
+
+        const message = `Enjoy Spoon Order
+
+Name: ${firstName} ${lastName}
+Phone: ${mobile}
+Email: ${email}
+City: ${city}
+Pincode: ${pincode}
+Address: ${address}
+Notes: ${notes || "None"}
+
+Products:
+${productText}
+Total: Rs.${total}`;
+
+        const paymentInstruction = `
+
+Payment:
+COD is not available.
+Please pay by the GPay QR code shown on checkout page and send payment screenshot on WhatsApp.`;
+
+        const whatsappURL = `https://wa.me/919979955474?text=${encodeURIComponent(message + paymentInstruction)}`;
+        window.open(whatsappURL, "_blank");
+        localStorage.removeItem("cart");
+
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 1200);
+      });
+    </script>
+  </body>
+</html>

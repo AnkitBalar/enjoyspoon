@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enjoy Spoon Premium Mukhwas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="announcement">
+      <span>Premium mukhwas crafted for fresh after-meal moments</span>
+      <span>Free delivery on family combos</span>
+      <!-- <span>COD available across India</span> -->
+    </div>
+
+    <header class="header">
+      <a class="logo" href="index.html" aria-label="Enjoy Spoon home">
+        <img src="images/logo.png" alt="Enjoy Spoon">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#craft">Craft</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <!-- <a class="header-phone" href="tel:+919979955474">+91 99799 55474</a> -->
+        <button class="cart-btn" type="button" onclick="toggleCart()" aria-label="Open cart">
+          Cart <span id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button type="button" onclick="toggleCart()" aria-label="Close cart">&times;</button>
+      </div>
+      <div id="cart-items"></div>
+      <div class="cart-footer">
+        <h3>Total &#8377;<span id="cart-total">0</span></h3>
+        <button class="checkout-btn" type="button">Checkout</button>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <span class="eyebrow">100% Natural Premium Mukhwas</span>
+            <h1>Traditional freshness, bottled with a premium finish.</h1>
+            <p>
+              Enjoy Spoon brings roasted chana mukhwas into a cleaner, richer,
+              family-ready format with no artificial colors and a taste that
+              feels right after every meal.
+            </p>
+            <div class="hero-buttons">
+              <a href="#products" class="btn-primary">Shop Combos</a>
+              <a href="https://wa.me/919979955474" class="btn-secondary">Order on WhatsApp</a>
+            </div>
+            <div class="hero-stats" aria-label="Enjoy Spoon highlights">
+              <div>
+                <h3>5000+</h3>
+                <p>Happy Customers</p>
+              </div>
+              <div>
+                <h3>4.9</h3>
+                <p>Average Rating</p>
+              </div>
+              <div>
+                <h3>100%</h3>
+                <p>Natural Taste</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero-product">
+            <div class="product-stage">
+              <img src="images/product.png" alt="Enjoy Spoon premium mukhwas jar">
+              <div class="hero-price">
+                <span>Starts at</span>
+                <strong>&#8377;199</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-bar container" aria-label="Purchase benefits">
+        <div>
+          <span>01</span>
+          <strong>Free Delivery</strong>
+          <p>On selected value packs</p>
+        </div>
+        <div>
+          <span>02</span>
+          <strong>Natural Ingredients</strong>
+          <p>No artificial colors</p>
+        </div>
+        <div>
+          <span>03</span>
+          <strong>Secure Order</strong>
+          <p>Checkout or WhatsApp</p>
+        </div>
+        <div>
+          <span>04</span>
+          <strong>Premium Quality</strong>
+          <p>Freshly packed batches</p>
+        </div>
+      </section>
+
+      <section class="story-section" id="craft">
+        <div class="container story-grid">
+          <div class="story-image">
+            <img src="images/product-4.png" alt="Enjoy Spoon family combo pack">
+          </div>
+          <div class="story-content">
+            <span class="eyebrow">The Enjoy Spoon Standard</span>
+            <h2>Made for homes that care about taste and trust.</h2>
+            <p>
+              Every jar is designed to feel gift-worthy on the table and useful
+              every day. The blend is crisp, aromatic, and easy to enjoy after
+              lunch, dinner, tea, or celebrations.
+            </p>
+            <div class="story-points">
+              <div>
+                <strong>Fresh Crunch</strong>
+                <p>Roasted texture that stays satisfying.</p>
+              </div>
+              <div>
+                <strong>Family Size Options</strong>
+                <p>Choose one jar or stock up for the month.</p>
+              </div>
+              <div>
+                <strong>Premium Jar Finish</strong>
+                <p>Clean label, sealed pack, shelf-friendly design.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="combo-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Shop Best Sellers</span>
+            <h2>Choose your perfect combo</h2>
+            <p>Premium packs for tasting, gifting, daily use, and full-family refills.</p>
+          </div>
+          <div class="combo-grid">
+            <article class="combo-card">
+              <div class="offer-tag">Save &#8377;50</div>
+              <img src="images/product-1.png" alt="Single pack mukhwas">
+              <div class="combo-body">
+                <span>250g jar</span>
+                <h3>Single Pack</h3>
+                <p>Perfect for first-time tasting.</p>
+                <h4>&#8377;199</h4>
+                <button onclick="addToCart('Single Pack',199,'images/product-1.png')">Add To Cart</button>
+              </div>
+            </article>
+            <article class="combo-card featured-card">
+              <div class="offer-tag">Most Loved</div>
+              <img src="images/product-2.png" alt="Duo pack mukhwas">
+              <div class="combo-body">
+                <span>2 x 250g</span>
+                <h3>Duo Pack</h3>
+                <p>Daily freshness for couples and small families.</p>
+                <h4>&#8377;379</h4>
+                <button onclick="addToCart('Duo Pack',379,'images/product-2.png')">Add To Cart</button>
+              </div>
+            </article>
+            <article class="combo-card">
+              <div class="offer-tag">Save &#8377;160</div>
+              <img src="images/product-3.png" alt="Triple pack mukhwas">
+              <div class="combo-body">
+                <span>3 x 250g</span>
+                <h3>Triple Pack</h3>
+                <p>A smart monthly stock-up option.</p>
+                <h4>&#8377;549</h4>
+                <button onclick="addToCart('Triple Pack',549,'images/product-3.png')">Add To Cart</button>
+              </div>
+            </article>
+            <article class="combo-card">
+              <div class="offer-tag">Best Value</div>
+              <img src="images/product-4.png" alt="Family combo mukhwas">
+              <div class="combo-body">
+                <span>4 jar combo</span>
+                <h3>Family Combo</h3>
+                <p>Made for homes, events, and gifting.</p>
+                <h4>&#8377;679</h4>
+                <button onclick="addToCart('Family Combo',679,'images/product-4.png')">Add To Cart</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="why-us">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Why Families Love It</span>
+            <h2>Small details, better everyday experience.</h2>
+          </div>
+          <div class="why-grid">
+            <div class="why-card">
+              <span>Natural</span>
+              <h3>No Artificial Colors</h3>
+              <p>Clean, simple taste without unnecessary additives.</p>
+            </div>
+            <div class="why-card">
+              <span>Fresh</span>
+              <h3>After-Meal Ready</h3>
+              <p>A light finish after lunch, dinner, or festive food.</p>
+            </div>
+            <div class="why-card">
+              <span>Premium</span>
+              <h3>Giftable Packaging</h3>
+              <p>Looks refined on the table and feels special to share.</p>
+            </div>
+            <div class="why-card">
+              <span>Fast</span>
+              <h3>India Delivery</h3>
+              <p>Order online or message directly on WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="process-section">
+        <div class="container process-grid">
+          <div class="process-copy">
+            <span class="eyebrow">From Pack To Plate</span>
+            <h2>A simple ritual after every meal.</h2>
+            <p>
+              Keep the jar on your dining table, serve a spoonful after meals,
+              and enjoy a crisp, traditional finish with the family.
+            </p>
+          </div>
+          <div class="process-steps">
+            <div><strong>01</strong><span>Open the sealed jar</span></div>
+            <div><strong>02</strong><span>Serve a small spoonful</span></div>
+            <div><strong>03</strong><span>Share freshness after meals</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonial-section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Customer Notes</span>
+            <h2>Freshness people come back for.</h2>
+            <p>Real words from families who keep Enjoy Spoon on the dining table.</p>
+          </div>
+          <div class="testimonial-slider" aria-label="Customer reviews">
+            <button class="testimonial-nav testimonial-prev" type="button" aria-label="Previous review">Prev</button>
+            <div class="testimonial-viewport">
+              <div class="testimonial-track">
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"The taste feels premium and the packaging looks beautiful on our dining table."</p>
+                  <h4>Rajesh Patel</h4>
+                  <span>Ahmedabad</span>
+                </article>
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"Ordered the family combo. Fresh, crunchy, and everyone at home liked it."</p>
+                  <h4>Neha Shah</h4>
+                  <span>Surat</span>
+                </article>
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"Good value and quick delivery. The jar quality feels much better than usual packs."</p>
+                  <h4>Mehul Trivedi</h4>
+                  <span>Vadodara</span>
+                </article>
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"After dinner everyone asks for this mukhwas. The flavor is clean and not too heavy."</p>
+                  <h4>Kinjal Desai</h4>
+                  <span>Rajkot</span>
+                </article>
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"The jar looks premium enough for gifting. I ordered extra packs for relatives."</p>
+                  <h4>Amit Joshi</h4>
+                  <span>Gandhinagar</span>
+                </article>
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"Fresh crunch, nice aroma, and the quantity is perfect for home use."</p>
+                  <h4>Bhavika Patel</h4>
+                  <span>Bhavnagar</span>
+                </article>
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"I liked that it does not feel artificial. Taste is traditional and balanced."</p>
+                  <h4>Hardik Mehta</h4>
+                  <span>Anand</span>
+                </article>
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"Packing was neat and delivery was smooth. The family combo is worth it."</p>
+                  <h4>Jigna Parmar</h4>
+                  <span>Morbi</span>
+                </article>
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"Guests noticed the jar first, then asked where we bought it from after tasting."</p>
+                  <h4>Rakesh Thakkar</h4>
+                  <span>Jamnagar</span>
+                </article>
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"Perfect after meals. It has become a daily habit at our home."</p>
+                  <h4>Priya Shah</h4>
+                  <span>Nadiad</span>
+                </article>
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"The taste reminds me of traditional homemade mukhwas but in modern packaging."</p>
+                  <h4>Dhruv Vyas</h4>
+                  <span>Junagadh</span>
+                </article>
+                <article class="testimonial-card">
+                  <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <p>"Ordered on WhatsApp and got quick response. Product quality is very good."</p>
+                  <h4>Hetal Modi</h4>
+                  <span>Bharuch</span>
+                </article>
+              </div>
+            </div>
+            <button class="testimonial-nav testimonial-next" type="button" aria-label="Next review">Next</button>
+            <div class="testimonial-dots" aria-label="Review slider pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <div class="container faq-grid">
+          <div class="faq-copy">
+            <span class="eyebrow">Need Help?</span>
+            <h2>Frequently asked questions</h2>
+            <p>For bulk, gifting, or urgent orders, WhatsApp us directly and we will help you choose the right combo.</p>
+            <a href="https://wa.me/919979955474" class="btn-primary">Chat on WhatsApp</a>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-btn">Is COD available?</button>
+              <div class="faq-content">Yes, COD is available for eligible delivery locations.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-btn">How long does delivery take?</button>
+              <div class="faq-content">Most orders are delivered within 3-7 working days.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-btn">Can I order for gifting?</button>
+              <div class="faq-content">Yes, family combos are ideal for gifting and festive sharing.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-btn">Are artificial colors added?</button>
+              <div class="faq-content">No, Enjoy Spoon is made with a natural-taste approach and no artificial colors.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="container footer-top">
+        <div>
+          <img src="images/logo.png" alt="Enjoy Spoon">
+          <p>Premium mukhwas for every home, every meal, and every shared table.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="#products">Products</a>
+          <a href="#craft">Craft</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <!-- <p>+91 99799 55474</p> -->
+          <!-- <p>ankitbalar01@gmail.com</p> -->
+          <a href="https://wa.me/919979955474">WhatsApp Order</a>
+        </div>
+      </div>
+      <div class="copyright">&#169; 2026 Enjoy Spoon. All rights reserved.</div>
+    </footer>
+
+    <a href="https://wa.me/919979955474" class="floating-whatsapp" aria-label="Order on WhatsApp">WA</a>
+    <script src="js/app.js"></script>
+  </body>
+</html>

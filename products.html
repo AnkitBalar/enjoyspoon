@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Enjoy Spoon Premium Mukhwas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .products-page {
+        padding: 140px 7% 80px;
+        min-height: 100vh;
+      }
+
+      .page-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .page-title h1 {
+        color: #0c5d32;
+        font-size: 52px;
+        margin-bottom: 10px;
+      }
+
+      .page-title p {
+        color: #777;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+      }
+
+      .product-box {
+        background: #fff;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+        transition: .4s;
+        position: relative;
+      }
+
+      .product-box:hover {
+        transform: translateY(-10px);
+      }
+
+      .badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #d4a017;
+        color: #fff;
+        padding: 8px 15px;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .product-image {
+        padding: 25px;
+        text-align: center;
+      }
+
+      .product-image img {
+        width: 100%;
+        max-width: 250px;
+      }
+
+      .product-content {
+        padding: 25px;
+      }
+
+      .product-content h3 {
+        color: #0c5d32;
+        margin-bottom: 10px;
+      }
+
+      .weight {
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .price {
+        font-size: 34px;
+        color: #d4a017;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .features-list {
+        list-style: none;
+        margin-bottom: 20px;
+      }
+
+      .features-list li {
+        margin-bottom: 8px;
+      }
+
+      .product-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .add-btn {
+        border: none;
+        background: #0c5d32;
+        color: #fff;
+        padding: 14px;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+
+      .buy-btn {
+        border: none;
+        background: #d4a017;
+        color: #fff;
+        padding: 14px;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+
+      .offer-section {
+        margin-top: 80px;
+        background: linear-gradient(135deg, #0c5d32, #0f8d4b);
+        padding: 60px;
+        border-radius: 30px;
+        text-align: center;
+        color: #fff;
+      }
+
+      .offer-section h2 {
+        margin-bottom: 20px;
+        font-size: 42px;
+      }
+
+      @media(max-width:1200px) {
+        .products-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media(max-width:768px) {
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .page-title h1 {
+          font-size: 36px;
+        }
+
+        .offer-section {
+          padding: 35px;
+        }
+
+        .offer-section h2 {
+          font-size: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <img src="images/logo.png" alt="">
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="products.html">Products</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="cart-btn" onclick="toggleCart()"> 🛒 <span id="cart-count">0</span>
+      </div>
+    </header>
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <span onclick="toggleCart()">✖</span>
+      </div>
+      <div id="cart-items"></div>
+      <div class="cart-footer">
+        <h3> Total ₹ <span id="cart-total">0</span>
+        </h3>
+        <button class="checkout-btn" onclick="window.location.href='checkout.html'"> Checkout </button>
+      </div>
+    </div>
+    <!-- Products -->
+    <section class="products-page">
+      <div class="page-title">
+        <h1>Our Premium Combos</h1>
+        <p> Choose the perfect pack for your family </p>
+      </div>
+      <div class="products-grid">
+        <!-- Single -->
+        <div class="product-box">
+          <div class="badge"> Best Value </div>
+          <div class="product-image">
+            <img src="images/product-1.png" alt="">
+          </div>
+          <div class="product-content">
+            <h3>Single Pack</h3>
+            <p class="weight"> 250g Premium Mukhwas </p>
+            <div class="price"> ₹199 </div>
+            <ul class="features-list">
+              <li>✔ Premium Quality</li>
+              <li>✔ Natural Ingredients</li>
+              <li>✔ Fresh Packaging</li>
+              <li>✔ Healthy Digestive Mix</li>
+            </ul>
+            <div class="product-actions">
+              <button class="add-btn" onclick="addToCart('Single Pack',199)"> Add To Cart </button>
+              <button class="buy-btn" onclick="buyNow('Single Pack',199)"> Buy Now </button>
+            </div>
+          </div>
+        </div>
+        <!-- Double -->
+        <div class="product-box">
+          <div class="badge"> Save ₹19 </div>
+          <div class="product-image">
+            <img src="images/product-2.png" alt="">
+          </div>
+          <div class="product-content">
+            <h3>Double Combo</h3>
+            <p class="weight"> 500g Premium Mukhwas </p>
+            <div class="price"> ₹379 </div>
+            <ul class="features-list">
+              <li>✔ Family Pack</li>
+              <li>✔ Fresh Taste</li>
+              <li>✔ Better Savings</li>
+              <li>✔ Premium Quality</li>
+            </ul>
+            <div class="product-actions">
+              <button class="add-btn" onclick="addToCart('Double Combo',379)"> Add To Cart </button>
+              <button class="buy-btn" onclick="buyNow('Double Combo',379)"> Buy Now </button>
+            </div>
+          </div>
+        </div>
+        <!-- Triple -->
+        <div class="product-box">
+          <div class="badge"> Best Seller </div>
+          <div class="product-image">
+            <img src="images/product-3.png" alt="">
+          </div>
+          <div class="product-content">
+            <h3>Triple Combo</h3>
+            <p class="weight"> 750g Premium Mukhwas </p>
+            <div class="price"> ₹549 </div>
+            <ul class="features-list">
+              <li>✔ Extra Savings</li>
+              <li>✔ Premium Quality</li>
+              <li>✔ Family Favourite</li>
+              <li>✔ Long Lasting Pack</li>
+            </ul>
+            <div class="product-actions">
+              <button class="add-btn" onclick="addToCart('Triple Combo',549)"> Add To Cart </button>
+              <button class="buy-btn" onclick="buyNow('Triple Combo',549)"> Buy Now </button>
+            </div>
+          </div>
+        </div>
+        <!-- Family -->
+        <div class="product-box">
+          <div class="badge"> Most Popular </div>
+          <div class="product-image">
+            <img src="images/product-4.png" alt="">
+          </div>
+          <div class="product-content">
+            <h3>Family Combo</h3>
+            <p class="weight"> 1000g Premium Mukhwas </p>
+            <div class="price"> ₹699 </div>
+            <ul class="features-list">
+              <li>✔ Maximum Savings</li>
+              <li>✔ Large Family Pack</li>
+              <li>✔ Premium Quality</li>
+              <li>✔ Best Offer</li>
+            </ul>
+            <div class="product-actions">
+              <button class="add-btn" onclick="addToCart('Family Combo',699)"> Add To Cart </button>
+              <button class="buy-btn" onclick="buyNow('Family Combo',699)"> Buy Now </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Offer -->
+      <div class="offer-section">
+        <h2> 🎉 Limited Time Offer </h2>
+        <p> Order today and enjoy premium quality Mukhwas delivered to your doorstep. </p>
+      </div>
+    </section>
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919979955474" class="floating-whatsapp"> 💬 </a>
+    <script src="js/app.js"></script>
+  </body>
+</html>

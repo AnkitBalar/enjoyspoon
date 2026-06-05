@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Enjoy Spoon Premium Mukhwas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .about-page {
+        padding: 140px 7% 80px;
+      }
+
+      .about-hero {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .about-hero h1 {
+        font-size: 56px;
+        color: #0c5d32;
+        margin-bottom: 15px;
+      }
+
+      .about-hero p {
+        max-width: 800px;
+        margin: auto;
+        color: #666;
+        line-height: 1.8;
+      }
+
+      .about-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-bottom: 100px;
+      }
+
+      .about-image img {
+        width: 100%;
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
+      }
+
+      .about-content h2 {
+        color: #0c5d32;
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+
+      .about-content p {
+        line-height: 1.9;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin-bottom: 100px;
+      }
+
+      .stat-card {
+        background: #fff;
+        padding: 35px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+      }
+
+      .stat-card h3 {
+        font-size: 40px;
+        color: #d4a017;
+      }
+
+      .stat-card p {
+        margin-top: 10px;
+      }
+
+      .values {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .value-card {
+        background: #fff;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+        text-align: center;
+      }
+
+      .value-card h3 {
+        color: #0c5d32;
+        margin: 15px 0;
+      }
+
+      .cta-section {
+        margin-top: 100px;
+        background: linear-gradient(135deg, #0c5d32, #0f8d4b);
+        color: #fff;
+        padding: 70px;
+        border-radius: 30px;
+        text-align: center;
+      }
+
+      .cta-section h2 {
+        font-size: 42px;
+        margin-bottom: 20px;
+      }
+
+      .cta-btn {
+        display: inline-block;
+        margin-top: 25px;
+        background: #fff;
+        color: #0c5d32;
+        padding: 15px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      @media(max-width:991px) {
+        .about-section {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .values {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media(max-width:768px) {
+        .about-hero h1 {
+          font-size: 38px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-section {
+          padding: 40px 25px;
+        }
+
+        .cta-section h2 {
+          font-size: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <img src="images/logo.png" alt="">
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="products.html">Products</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="cart-btn" onclick="window.location.href='products.html'"> Shop Now </div>
+    </header>
+    <!-- About Hero -->
+    <section class="about-page">
+      <div class="about-hero">
+        <h1>About Enjoy Spoon</h1>
+        <p> Enjoy Spoon Premium Mukhwas brings together traditional taste, premium quality ingredients, and hygienic packaging to deliver a healthy and delicious experience for every family. </p>
+      </div>
+      <!-- Story -->
+      <div class="about-section">
+        <div class="about-image">
+          <img src="images/product.jpg" alt="Enjoy Spoon">
+        </div>
+        <div class="about-content">
+          <h2>Our Story</h2>
+          <p> At Enjoy Spoon, we believe that every meal deserves the perfect ending. Our Premium Mukhwas is carefully crafted using selected ingredients, traditional recipes, and modern hygiene standards. </p>
+          <p> We are committed to delivering freshness, taste, and quality in every spoon. Our mission is to preserve traditional Indian flavors while ensuring the highest standards of quality and customer satisfaction. </p>
+        </div>
+      </div>
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat-card">
+          <h3>100%</h3>
+          <p>Natural Ingredients</p>
+        </div>
+        <div class="stat-card">
+          <h3>5000+</h3>
+          <p>Happy Customers</p>
+        </div>
+        <div class="stat-card">
+          <h3>4.9★</h3>
+          <p>Customer Rating</p>
+        </div>
+        <div class="stat-card">
+          <h3>24/7</h3>
+          <p>Support</p>
+        </div>
+      </div>
+      <!-- Values -->
+      <div class="values">
+        <div class="value-card">
+          <h2>🌿</h2>
+          <h3>Natural Quality</h3>
+          <p> Made from carefully selected ingredients without compromising on quality. </p>
+        </div>
+        <div class="value-card">
+          <h2>❤️</h2>
+          <h3>Customer First</h3>
+          <p> Every product is prepared keeping customer satisfaction as our top priority. </p>
+        </div>
+        <div class="value-card">
+          <h2>🏆</h2>
+          <h3>Premium Standards</h3>
+          <p> Hygienic packaging and strict quality control for a premium experience. </p>
+        </div>
+      </div>
+      <!-- CTA -->
+      <div class="cta-section">
+        <h2> Taste The Premium Difference Today </h2>
+        <p> Order Enjoy Spoon Premium Mukhwas and enjoy a perfect blend of tradition and quality. </p>
+        <a href="products.html" class="cta-btn"> Shop Now </a>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <h3>Enjoy Spoon Premium Mukhwas</h3>
+      <p> Healthy Taste For Every Home </p>
+    </footer>
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919979955474" class="floating-whatsapp"> 💬 </a>
+    <script src="js/app.js"></script>
+  </body>
+</html>
