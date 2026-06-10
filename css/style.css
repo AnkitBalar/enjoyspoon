@@ -1120,21 +1120,15 @@ body.cart-open {
 }
 
 .floating-whatsapp {
-	align-items: center;
-	background: #22a767;
 	border: 3px solid var(--white);
 	border-radius: 50%;
 	bottom: 24px;
 	box-shadow: 0 18px 42px rgba(4, 23, 13, 0.24);
 	color: var(--white);
 	display: flex;
-	font-size: 13px;
-	font-weight: 900;
-	height: 58px;
 	justify-content: center;
 	position: fixed;
 	right: 24px;
-	width: 58px;
 	z-index: 999;
 }
 
