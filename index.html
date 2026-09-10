@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enjoy Spoon | Premium Mukhwas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="nav">
+    <a href="#home" class="brand">
+      <img src="logo.png" alt="Enjoy Spoon">
+      <div class="brand-text">
+        <b>Enjoy Spoon</b>
+        <span>PREMIUM MUKHWAS</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#story">Story</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <button class="cart-btn" onclick="openCart()" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <a href="#shop" class="btn btn-green btn-sm">Order Now</a>
+      <button class="burger" id="burgerBtn" onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-tag hero-seq d1">★ 100% Natural Ingredients</span>
+      <h1 class="hero-seq d2">ENJOY<br><em>SPOON</em></h1>
+      <p class="hero-seq d3">The perfect after-meal treat — freshly roasted, handcrafted premium mukhwas in two classic flavors, delivered straight to your door.</p>
+      <div class="hero-cta hero-seq d4">
+        <a href="#shop" class="btn btn-gold">Shop Now <span>→</span></a>
+        <a href="#story" class="btn btn-outline-light">Our Story</a>
+      </div>
+      <div class="hero-proof hero-seq d5">
+        <div class="avatars">
+          <span>R</span><span>M</span><span>K</span>
+        </div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <small>4,800+ Happy Customers</small>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-plate">
+        <img class="float-loop" src="gehu.png" alt="Enjoy Spoon Golden Grains Mukhwas">
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom-strip">
+    <div class="strip-inner">
+      <span>Gehu Flavor</span>
+      <span>Bajri Flavor</span>
+      <span>100% Natural</span>
+      <span>Handmade Fresh</span>
+      <span>Pan-India Delivery</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU / PRODUCTS ============ -->
+<section class="section-pad" id="shop">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <h2>Our Mukhwas Collection</h2>
+      <p>Made with freshly roasted fennel, traditional spices and wholesome grain — two signature flavors, crafted for a perfectly fresh bite every time.</p>
+    </div>
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-cat="all">All</button>
+      <button class="tab" data-cat="gehu">Gehu</button>
+      <button class="tab" data-cat="bajri">Bajri</button>
+    </div>
+    <div class="product-grid two-col" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section-pad">
+  <div class="features-section wrap" style="max-width:1176px;">
+    <div class="features-grid">
+      <div class="features-copy reveal">
+        <h2>Pure Flavor<br>Starts Here</h2>
+        <p>We prepare every batch by hand, in small quantities — so what reaches you is nothing but freshness, purity and authentic taste.</p>
+        <a href="#shop" class="btn btn-green">Learn More <span>→</span></a>
+        <div class="feature-cols reveal-group">
+          <div class="feature-col reveal-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 6 5 10 5 14a7 7 0 0 0 14 0c0-4-3-8-7-12z"/></svg>
+            <h4>Freshly Roasted</h4>
+            <p>Fennel, grain and spices roasted fresh every day for full-bodied flavor.</p>
+          </div>
+          <div class="feature-col reveal-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/></svg>
+            <h4>Pure Ingredients</h4>
+            <p>No artificial colors or preservatives — just 100% natural ingredients.</p>
+          </div>
+          <div class="feature-col reveal-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <h4>Fast Delivery</h4>
+            <p>Order today and get freshly packed mukhwas delivered to your doorstep, fast.</p>
+          </div>
+        </div>
+      </div>
+      <div class="features-visual reveal">
+        <div class="plate"><img class="float-loop" src="bajri.png" alt="Enjoy Spoon Pearl Millet Mukhwas"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOWCASE ============ -->
+<section class="showcase" id="story">
+  <div class="wrap">
+    <div class="showcase-grid">
+      <div class="showcase-media reveal">
+        <div class="showcase-card">
+          <div class="center-art">
+            <div class="duo-jars">
+              <img class="jar jar-right float-loop" src="Combo.png" alt="Pearl Millet jar" style="animation-delay:.4s;">
+            </div>
+          </div>
+          <div class="bottom-tag">
+            <span>Golden Grains &amp; Pearl Millet<br>Signature Mukhwas</span>
+            <a href="#shop">↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-copy reveal">
+        <h2>Smooth Flavor,<br>Everyday Freshness</h2>
+        <p>Two time-tested recipes — Golden Grains (wheat) and Pearl Millet (bajra) — roasted with traditional spices for a mukhwas that tastes like home.</p>
+        <div class="showcase-cta">
+          <a href="#shop" class="btn btn-green">Shop The Collection</a>
+        </div>
+        <div class="founder-row">
+          <div class="founder-pic"><img src="logo.png" alt="Enjoy Spoon"><span class="fresh-tag">Fresh Blend</span></div>
+          <div class="line"></div>
+          <div class="founder-quote">
+            <b>"Every packet carries the taste of home."</b>
+            <span>— ENJOY SPOON TEAM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section-pad" id="reviews">
+  <div class="testimonials wrap" style="max-width:1176px;">
+    <div class="head-block reveal">
+      <h2>What Our Customers Say</h2>
+      <p>Real flavor, fast delivery and consistent quality — in our customers' own words.</p>
+    </div>
+    <div class="t-grid reveal-group">
+      <div class="t-card reveal-item">
+        <p>"The Golden Grains mukhwas was so fresh and flavorful, and the packaging was excellent. I order every month."</p>
+        <div class="t-person">
+          <div class="t-avatar">R</div>
+          <div><b>Rahul Shah</b><small>Ahmedabad</small></div>
+        </div>
+      </div>
+      <div class="t-card featured reveal-item">
+        <p>"Tastes just like homemade, absolutely no artificial flavor. Pearl Millet mukhwas is my favorite!"</p>
+        <div class="t-person">
+          <div class="t-avatar">M</div>
+          <div><b>Meera Patel</b><small>Surat</small></div>
+        </div>
+      </div>
+      <div class="t-card reveal-item">
+        <p>"Delivery was super quick and both flavors were fresh — perfect for gifting during festivals."</p>
+        <div class="t-person">
+          <div class="t-avatar">K</div>
+          <div><b>Ketan Desai</b><small>Rajkot</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section-pad" id="faq">
+  <div class="wrap">
+    <div class="head-block reveal">
+      <h2>Your Common Questions</h2>
+      <p>Quick answers about our mukhwas, delivery and ordering process.</p>
+    </div>
+    <div class="faq-list reveal-group" id="faqList">
+      <div class="faq-item open reveal-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>What makes our mukhwas special?</span><span class="icon">+</span></button>
+        <div class="faq-a"><p>We hand-prepare small batches using freshly roasted fennel, wholesome grain (wheat or pearl millet) and select spices, so every packet delivers authentic flavor.</p></div>
+      </div>
+      <div class="faq-item reveal-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>How many flavors do you offer?</span><span class="icon">+</span></button>
+        <div class="faq-a"><p>Currently we offer two signature flavors — Gehu (wheat-based) and Bajri (pearl millet-based) mukhwas. More flavors are on the way!</p></div>
+      </div>
+      <div class="faq-item reveal-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>How long does delivery take?</span><span class="icon">+</span></button>
+        <div class="faq-a"><p>Most cities receive delivery within 2-4 business days. You'll get tracking details as soon as your order is confirmed.</p></div>
+      </div>
+      <div class="faq-item reveal-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span>Do you use any preservatives?</span><span class="icon">+</span></button>
+        <div class="faq-a"><p>No, none of our mukhwas contains artificial colors or preservatives — everything is 100% natural.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap footer-top">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Bring Home Pure,<br>Fresh Flavor</h3>
+        <p>Premium mukhwas made with wholesome grain and traditional spices — an unforgettable taste for every occasion.</p>
+        <div class="subscribe">
+          <input type="email" placeholder="Enter your email">
+          <button class="btn btn-gold btn-sm" type="button">Subscribe</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#story">Story</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Flavors</h5>
+        <ul>
+          <li><a href="#shop">Golden Grains (Wheat)</a></li>
+          <li><a href="#shop">Pearl Millet (Bajra)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <address>
+          Enjoy Spoon<br>
+          123, Spice Market,<br>
+          Ahmedabad, Gujarat, India
+        </address>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-4-7.5"/><path d="M21 3l-9 9"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Enjoy Spoon. All rights reserved.</span>
+    <!-- <span>Terms &amp; Conditions</span>
+    <span>Privacy Policy</span> -->
+  </div>
+  <div class="footer-watermark">ENJOY SPOON</div>
+</footer>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="overlay" id="overlay" onclick="closeAllOverlays()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total-row"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <button class="btn btn-gold" onclick="openCheckout()" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<!-- ============ CHECKOUT MODAL ============ -->
+<div class="modal" id="checkoutModal">
+  <div class="modal-backdrop" onclick="closeAllOverlays()"></div>
+  <div class="modal-box checkout-box">
+    <button class="modal-close" onclick="closeAllOverlays()">✕</button>
+    <div class="checkout-grid">
+      <div class="checkout-form">
+        <h3>Delivery Details</h3>
+        <p>Fill in your details before payment</p>
+        <div class="field" id="fieldName">
+          <label>Full Name</label>
+          <input type="text" id="custName" placeholder="e.g. Ramesh Patel">
+          <span class="field-error" id="errName">Please enter your name</span>
+        </div>
+        <div class="field" id="fieldPhone">
+          <label>Phone Number</label>
+          <input type="tel" id="custPhone" placeholder="9876543210">
+          <span class="field-error" id="errPhone">Enter a valid 10-digit phone number</span>
+        </div>
+        <div class="field" id="fieldEmail">
+          <label>Email</label>
+          <input type="email" id="custEmail" placeholder="you@example.com">
+          <span class="field-error" id="errEmail">Enter a valid email address</span>
+        </div>
+        <div class="field-row">
+          <div class="field" id="fieldHouseNo">
+            <label>House No.</label>
+            <input type="text" id="custHouseNo" placeholder="e.g. 12-B">
+            <span class="field-error" id="errHouseNo">Required</span>
+          </div>
+          <div class="field" id="fieldStreet">
+            <label>Street</label>
+            <textarea id="custStreet" placeholder="e.g. MG Road, near XYZ landmark" rows="2"></textarea>
+            <span class="field-error" id="errStreet">Required</span>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field" id="fieldCity">
+            <label>City</label>
+            <input type="text" id="custCity" placeholder="e.g. Surat">
+            <span class="field-error" id="errCity">Required</span>
+          </div>
+          <div class="field" id="fieldState">
+            <label>State</label>
+            <input type="text" id="custState" placeholder="e.g. Gujarat">
+            <span class="field-error" id="errState">Required</span>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field" id="fieldCountry">
+            <label>Country</label>
+            <input type="text" id="custCountry" placeholder="e.g. India" value="India">
+            <span class="field-error" id="errCountry">Required</span>
+          </div>
+          <div class="field" id="fieldPincode">
+            <label>Pincode</label>
+            <input type="text" id="custPincode" placeholder="e.g. 395007" inputmode="numeric">
+            <span class="field-error" id="errPincode">Enter a valid 6-digit pincode</span>
+          </div>
+        </div>
+        <button class="btn btn-gold" id="payBtn" onclick="startRazorpayPayment()">Pay with Razorpay</button>
+      </div>
+      <div class="checkout-summary">
+        <h4>Order Summary</h4>
+        <div class="summary-items" id="checkoutItems"></div>
+        <div class="summary-row"><span>Subtotal</span><span id="summarySubtotal">₹0</span></div>
+        <div class="summary-row"><span>Shipping</span><span class="free-tag">FREE</span></div>
+        <div class="summary-row total"><span>Total</span><span id="summaryTotal">₹0</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
