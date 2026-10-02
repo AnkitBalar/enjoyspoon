@@ -118,6 +118,38 @@
     font-size:1.08rem;color:rgba(255,255,255,.78);
     max-width:440px;margin:0 0 34px;line-height:1.6;
   }
+  .hero-offer{
+    display:inline-block;position:relative;margin:-10px 0 30px;
+    padding:14px 22px 14px 20px;border-radius:14px;
+    background:rgba(255,255,255,.08);border:1.5px dashed var(--gold-light);
+  }
+  .offer-label{
+    position:absolute;top:-11px;left:16px;
+    background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--green-dark);
+    font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 10px;border-radius:999px;
+  }
+  .offer-main{font-size:1.35rem;font-weight:800;color:#fff;line-height:1.2;}
+  .offer-main b{color:var(--gold-light);}
+  .offer-main span{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.85);}
+  .offer-price{font-size:.85rem;color:rgba(255,255,255,.75);margin-top:4px;}
+  .offer-price b{color:#fff;font-size:1rem;}
+  .offer-price s{opacity:.6;margin-left:4px;}
+  .offer-sticker{
+    position:absolute;top:6%;right:2%;z-index:2;
+    width:92px;height:92px;border-radius:50%;
+    background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--green-dark);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-weight:800;font-size:.8rem;letter-spacing:.06em;line-height:1;
+    box-shadow:0 10px 24px rgba(0,0,0,.3);transform:rotate(12deg);
+    border:3px solid var(--paper);
+  }
+  .offer-sticker b{font-size:1.6rem;font-weight:900;letter-spacing:0;}
+  @media(max-width:560px){
+    .offer-sticker{width:72px;height:72px;font-size:.66rem;}
+    .offer-sticker b{font-size:1.25rem;}
+    .offer-main{font-size:1.15rem;}
+  }
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:46px;}
   .hero-proof{display:flex;align-items:center;gap:14px;}
   .avatars{display:flex;}
@@ -290,15 +322,36 @@
   .testimonials{background:var(--green-dark);color:#fff;border-radius:34px;margin:0 auto;padding:90px 40px;}
   .testimonials .head-block h2{color:#fff;}
   .testimonials .head-block p{color:rgba(255,255,255,.6);}
-  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .t-card{
-    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
-    border-radius:18px;padding:30px 26px;
+  .t-slider{position:relative;}
+  .t-track{
+    display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;padding:18px 2px 6px;scrollbar-width:none;
   }
-  .t-card.featured{background:var(--gold);color:var(--green-dark);border-color:var(--gold);transform:translateY(-14px);}
-  .t-card p{font-weight:700;line-height:1.5;font-size:.98rem;margin:0 0 22px;}
+  .t-track::-webkit-scrollbar{display:none;}
+  .t-card{
+    flex:0 0 calc((100% - 48px)/3);scroll-snap-align:start;
+    display:flex;flex-direction:column;
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;padding:28px 26px;
+  }
+  .t-card.featured{background:var(--gold);color:var(--green-dark);border-color:var(--gold);}
+  .t-stars{color:var(--gold-light);letter-spacing:2px;font-size:.9rem;margin-bottom:14px;}
+  .t-card.featured .t-stars{color:var(--green-dark);}
+  .t-photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;margin-bottom:16px;}
+  .t-card p{font-weight:700;line-height:1.5;font-size:.98rem;margin:0 0 22px;flex:1;}
+  .t-nav{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+    width:44px;height:44px;border-radius:50%;
+    background:var(--gold);color:var(--green-dark);font-size:1.6rem;line-height:1;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.3);transition:opacity .2s ease;
+  }
+  .t-nav.prev{left:-22px;}
+  .t-nav.next{right:-22px;}
+  .t-nav:disabled{opacity:.3;cursor:default;}
+  .t-nav[hidden]{display:none;}
   .t-person{display:flex;align-items:center;gap:12px;}
-  .t-avatar{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;}
+  .t-avatar{width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;}
   .t-card.featured .t-avatar{background:rgba(23,51,25,.18);}
   .t-person b{display:block;font-size:.85rem;}
   .t-person small{font-size:.72rem;opacity:.7;}
@@ -566,8 +619,7 @@
     .product-grid{grid-template-columns:repeat(2,1fr);}
     .features-grid,.showcase-grid{grid-template-columns:1fr;}
     .feature-cols{grid-template-columns:1fr;}
-    .t-grid{grid-template-columns:1fr;}
-    .t-card.featured{transform:none;}
+    .t-card{flex-basis:calc((100% - 24px)/2);}
     .footer-grid{grid-template-columns:1fr 1fr;}
   }
   @media(max-width:560px){
@@ -575,8 +627,35 @@
     .product-grid{grid-template-columns:1fr 1fr;gap:14px;}
     .features-section{margin:0 14px;padding:44px 22px;}
     .testimonials{margin:0 14px;padding:60px 22px;}
+    .t-card{flex-basis:88%;}
+    .t-nav{width:36px;height:36px;font-size:1.3rem;}
+    .t-nav.prev{left:-14px;}
+    .t-nav.next{right:-14px;}
     .footer-grid{grid-template-columns:1fr;}
     .section-pad{padding:64px 0;}
     .field-row{flex-direction:column;gap:0;}
     .modal-box{padding:22px 20px;max-height:96vh;}
+  }
+
+  /* ---------- Sticky WhatsApp ---------- */
+  .wa-float{
+    position:fixed;right:22px;bottom:22px;z-index:85;
+    display:flex;align-items:center;gap:10px;
+    height:58px;padding:0 15px;border-radius:999px;
+    background:#25d366;color:#fff;font-weight:700;font-size:.9rem;
+    box-shadow:0 12px 28px rgba(0,0,0,.25);
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .wa-float svg{width:28px;height:28px;flex-shrink:0;}
+  .wa-float .wa-label{padding-right:6px;}
+  .wa-float:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(0,0,0,.3);}
+  .wa-float::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;
+    background:#25d366;z-index:-1;animation:waPulse 2.2s ease-out infinite;
+  }
+  @keyframes waPulse{0%{transform:scale(1);opacity:.55;}100%{transform:scale(1.35);opacity:0;}}
+  @media (prefers-reduced-motion: reduce){.wa-float::before{animation:none;}}
+  @media(max-width:560px){
+    .wa-float{right:16px;bottom:16px;width:54px;height:54px;padding:0;justify-content:center;}
+    .wa-float .wa-label{display:none;}
   }
