@@ -51,6 +51,70 @@ document.getElementById('tabs').addEventListener('click', e=>{
   renderProducts(btn.dataset.cat);
 });
 
+/* =========================================================
+   CUSTOMER REVIEWS — add only real customer reviews here.
+   Fields:
+     name, city, text, rating (1-5)
+     flavor  : optional, e.g. 'Golden Grains' / 'Pearl Millet'
+     avatar  : optional customer photo, e.g. "reviews/rahul.jpg"
+               (initial letter shown if missing)
+     photo   : optional photo the customer shared, e.g. "reviews/rahul-pack.jpg"
+     featured: optional, true = gold highlighted card
+   ========================================================= */
+const REVIEWS = [
+  {name:'Rahul Shah', city:'Ahmedabad', rating:5, flavor:'Golden Grains', text:'The Golden Grains mukhwas was so fresh and flavorful, and the packaging was excellent. I order every month.'},
+  {name:'Meera Patel', city:'Surat', rating:5, flavor:'Pearl Millet', featured:true, text:'Tastes just like homemade, absolutely no artificial flavor. Pearl Millet mukhwas is my favorite!'},
+  {name:'Ketan Desai', city:'Rajkot', rating:5, text:'Delivery was super quick and both flavors were fresh — perfect for gifting during festivals.'},
+];
+
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderReviews(){
+  const track = document.getElementById('reviewTrack');
+  if(!track) return;
+  track.innerHTML = REVIEWS.map(r=>{
+    const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+    const avatar = r.avatar
+      ? `<img class="t-avatar" src="${escapeHtml(r.avatar)}" alt="${escapeHtml(r.name)}" loading="lazy">`
+      : `<div class="t-avatar">${escapeHtml(r.name.charAt(0))}</div>`;
+    return `
+      <div class="t-card${r.featured ? ' featured' : ''}">
+        <div class="t-stars" aria-label="${r.rating} out of 5 stars">${stars}</div>
+        ${r.photo ? `<img class="t-photo" src="${escapeHtml(r.photo)}" alt="Photo shared by ${escapeHtml(r.name)}" loading="lazy">` : ''}
+        <p>"${escapeHtml(r.text)}"</p>
+        <div class="t-person">
+          ${avatar}
+          <div><b>${escapeHtml(r.name)}</b><small>${escapeHtml(r.city)}${r.flavor ? ' · ' + escapeHtml(r.flavor) : ''}</small></div>
+        </div>
+      </div>`;
+  }).join('');
+  updateReviewNav();
+  track.addEventListener('scroll', updateReviewNav, {passive:true});
+}
+
+function slideReviews(dir){
+  const track = document.getElementById('reviewTrack');
+  const card = track.querySelector('.t-card');
+  if(!card) return;
+  const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+  track.scrollBy({left: dir * (card.offsetWidth + gap), behavior:'smooth'});
+}
+
+function updateReviewNav(){
+  const track = document.getElementById('reviewTrack');
+  const prev = document.querySelector('.t-nav.prev');
+  const next = document.querySelector('.t-nav.next');
+  const max = track.scrollWidth - track.clientWidth - 2;
+  prev.disabled = track.scrollLeft <= 2;
+  next.disabled = track.scrollLeft >= max;
+  const hide = max <= 0;
+  prev.hidden = next.hidden = hide;
+}
+window.addEventListener('resize', ()=>{ if(document.getElementById('reviewTrack')) updateReviewNav(); });
+renderReviews();
+
 /* -------- Scroll-reveal animation -------- */
 if('IntersectionObserver' in window){
   const revealObserver = new IntersectionObserver((entries)=>{
