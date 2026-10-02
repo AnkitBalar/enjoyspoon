@@ -55,10 +55,10 @@
   }
   .nav{
     display:flex;align-items:center;justify-content:space-between;
-    padding:5px 32px;max-width:1240px;margin:0 auto;
+    padding:14px 32px;max-width:1240px;margin:0 auto;
   }
   .brand{display:flex;align-items:center;gap:10px;}
-  .brand img{height:80px;width:80px;object-fit:contain;}
+  .brand img{height:52px;width:52px;object-fit:contain;}
   .brand-text{display:flex;flex-direction:column;line-height:1.05;}
   .brand-text b{font-size:1.05rem;letter-spacing:.02em;color:var(--green-dark);}
   .brand-text span{font-size:.62rem;letter-spacing:.16em;color:var(--gold);font-weight:700;}
@@ -323,6 +323,33 @@
   .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
   .faq-item.open .faq-a{max-height:200px;}
   .faq-a p{margin:0;padding:0 26px 22px;color:var(--muted);font-size:.88rem;line-height:1.6;}
+
+  /* ---------- SEO Content ---------- */
+  .seo-section{padding-top:0;}
+  .seo-content{
+    max-width:1000px;margin:0 auto;position:relative;
+    max-height:300px;overflow:hidden;transition:max-height .5s ease;
+  }
+  .seo-content::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:120px;
+    background:linear-gradient(to bottom,rgba(250,246,236,0),var(--cream));
+    pointer-events:none;transition:opacity .3s ease;
+  }
+  .seo-content.expanded{max-height:2000px;}
+  .seo-content.expanded::after{opacity:0;}
+  .seo-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px 44px;}
+  .seo-cols h3{font-size:1.1rem;font-weight:800;color:var(--green-dark);margin:0 0 10px;}
+  .seo-cols p,.seo-cols li{color:var(--muted);font-size:.9rem;line-height:1.7;}
+  .seo-cols p{margin:0 0 12px;}
+  .seo-cols strong{color:var(--green);font-weight:600;}
+  .seo-cols ul{margin:0;padding-left:18px;}
+  .seo-cols li{margin-bottom:6px;}
+  .seo-cols li::marker{color:var(--gold);}
+  .seo-toggle-wrap{text-align:center;margin-top:24px;}
+  @media(max-width:768px){
+    .seo-cols{grid-template-columns:1fr;}
+    .seo-content{max-height:360px;}
+  }
 
   /* ---------- Footer ---------- */
   footer{background:var(--green-dark);color:#fff;margin-top:40px;position:relative;overflow:hidden;}
