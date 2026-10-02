@@ -215,7 +215,7 @@ function showToast(msg){
    For production (live) use, the order_id should be generated on
    your server — see the note in the comment below.
    ========================================================= */
-const RAZORPAY_KEY_ID = "rzp_live_TaHuPX4zNHPUJB"; // <-- put your Razorpay Key ID here
+const RAZORPAY_KEY_ID = "rzp_test_T6cAqabQ2RO4jH"; // <-- put your Razorpay Key ID here
 
 /* =========================================================
    GOOGLE SHEET ORDER LOGGING
@@ -445,4 +445,12 @@ function startRazorpayPayment(){
     showToast('Payment failed, please try again');
   });
   rzp.open();
+}
+
+function toggleSeo(btn){
+  const content = document.getElementById('seoContent');
+  const expanded = content.classList.toggle('expanded');
+  btn.textContent = expanded ? 'Read Less' : 'Read More';
+  btn.setAttribute('aria-expanded', expanded);
+  if(!expanded) content.scrollIntoView({behavior:'smooth', block:'start'});
 }
