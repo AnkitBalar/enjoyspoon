@@ -3,8 +3,8 @@
    an 'img' key on a product, e.g. "products/gehu.jpg")
    ========================================================= */
 const PRODUCTS = [
-  {id:'p1', name:'Golden Grains', desc:'Traditional wheat crunch, ready to eat — the taste you grew up with', price:249, mrp:399, cat:'gehu', color:'#c99a3e', rating:4.9, img:'gehu.png', sku:'ES-WHEAT-CRUNCH'},
-  {id:'p2', name:'Pearl Millet', desc:'Traditional bajra crunch, ready to eat — the taste you grew up with', price:249, mrp:399, cat:'bajri', color:'#4f7a3d', rating:4.8, img:'bajri.png', sku:'ES-BAJRI-CRUNCH'},
+  {id:'p1', name:'Golden Grains', desc:'Traditional wheat crunch, ready to eat — the taste you grew up with', price:249, mrp:399, cat:'gehu', color:'#c99a3e', rating:4.9, img:'Gehu.png', sku:'ES-WHEAT-CRUNCH'},
+  {id:'p2', name:'Pearl Millet', desc:'Traditional bajra crunch, ready to eat — the taste you grew up with', price:249, mrp:399, cat:'bajri', color:'#4f7a3d', rating:4.8, img:'Bajri.png', sku:'ES-BAJRI-CRUNCH'},
 ];
 
 /* -------- Product icon (placeholder art, used only if a product has no photo) -------- */

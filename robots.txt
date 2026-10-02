@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://enjoyspoon.in/sitemap.xml
