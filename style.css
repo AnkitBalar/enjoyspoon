@@ -247,9 +247,9 @@
   .add-btn.added{background:var(--gold);border-color:var(--gold);color:var(--green-dark);}
   .meesho-btn{
     display:flex;align-items:center;justify-content:center;gap:6px;
-    width:100%;margin-top:10px;padding:12px;border-radius:999px;
+    width:100%;margin-top:10px;padding:12px 10px;border-radius:999px;
     background:#fff;border:1.5px solid #9f2089;
-    color:#570a57;font-weight:700;font-size:.85rem;text-decoration:none;
+    color:#570a57;font-weight:700;font-size:.85rem;text-decoration:none;white-space:nowrap;
     transition:all .18s ease;
   }
   .meesho-btn img{height:18px;width:auto;display:block;}
@@ -636,6 +636,8 @@
   @media(max-width:560px){
     .wrap,.nav,.hero-inner,.strip-inner{padding-left:20px;padding-right:20px;}
     .product-grid{grid-template-columns:1fr 1fr;gap:14px;}
+    .meesho-btn{font-size:.78rem;gap:4px;}
+    .meesho-btn img{height:15px;}
     .features-section{margin:0 14px;padding:44px 22px;}
     .testimonials{margin:0 14px;padding:60px 22px;}
     .t-card{flex-basis:88%;}
