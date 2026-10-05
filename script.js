@@ -3,8 +3,8 @@
    an 'img' key on a product, e.g. "products/gehu.jpg")
    ========================================================= */
 const PRODUCTS = [
-  {id:'p1', name:'Golden Grains', desc:'Traditional wheat crunch, ready to eat — the taste you grew up with', price:249, mrp:399, cat:'gehu', color:'#c99a3e', rating:4.9, img:'Gehu.png', sku:'ES-WHEAT-CRUNCH'},
-  {id:'p2', name:'Pearl Millet', desc:'Traditional bajra crunch, ready to eat — the taste you grew up with', price:249, mrp:399, cat:'bajri', color:'#4f7a3d', rating:4.8, img:'Bajri.png', sku:'ES-BAJRI-CRUNCH'},
+  {id:'p1', name:'Golden Grains', desc:'Traditional wheat crunch, ready to eat — the taste you grew up with', price:249, mrp:399, cat:'gehu', color:'#c99a3e', rating:4.9, img:'Gehu.png', sku:'ES-WHEAT-CRUNCH', meesho:'https://www.meesho.com/roasted-gehu-mukhwas-jar-wheat-mouth-freshener-snack/p/haaduc?ms=2&source=Meri+Shop'},
+  {id:'p2', name:'Pearl Millet', desc:'Traditional bajra crunch, ready to eat — the taste you grew up with', price:249, mrp:399, cat:'bajri', color:'#4f7a3d', rating:4.8, img:'Bajri.png', sku:'ES-BAJRI-CRUNCH', meesho:'https://www.meesho.com/roasted-bajra-mukhwas-jar-pearl-millet-mouth-freshener-snack/p/haaduh?ms=2&source=Meri+Shop'},
 ];
 
 /* -------- Product icon (placeholder art, used only if a product has no photo) -------- */
@@ -38,6 +38,7 @@ function renderProducts(filter){
       <div class="product-desc">${p.desc}</div>
       <div class="product-price">₹${p.price} <span>₹${p.mrp}</span></div>
       <button class="add-btn" id="btn-${p.id}" onclick="addToCart('${p.id}', this)">Add to Cart</button>
+      ${p.meesho ? `<a class="meesho-btn" href="${p.meesho}" target="_blank" rel="noopener" onclick="if(window.gtag) gtag('event','meesho_click',{item_id:'${p.sku}'})">Buy on Meesho</a>` : ''}
     </div>
   `).join('');
 }
