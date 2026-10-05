@@ -38,7 +38,7 @@ function renderProducts(filter){
       <div class="product-desc">${p.desc}</div>
       <div class="product-price">₹${p.price} <span>₹${p.mrp}</span></div>
       <button class="add-btn" id="btn-${p.id}" onclick="addToCart('${p.id}', this)">Add to Cart</button>
-      ${p.meesho ? `<a class="meesho-btn" href="${p.meesho}" target="_blank" rel="noopener" onclick="if(window.gtag) gtag('event','meesho_click',{item_id:'${p.sku}'})">Buy on Meesho</a>` : ''}
+      ${p.meesho ? `<a class="meesho-btn" href="${p.meesho}" target="_blank" rel="noopener" onclick="if(window.gtag) gtag('event','meesho_click',{item_id:'${p.sku}'})">Buy on <img src="meesho-logo.svg" alt="Meesho" width="72" height="18"></a>` : ''}
     </div>
   `).join('');
 }
