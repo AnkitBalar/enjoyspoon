@@ -26,14 +26,30 @@
 
 <header>
   <div class="nav">
-    <a href="/" class="brand">
+    <a href="/#home" class="brand">
       <img src="logo.png" alt="Enjoy Spoon">
       <div class="brand-text">
         <b>Enjoy Spoon</b>
         <span>PREMIUM MUKHWAS</span>
       </div>
     </a>
-    <a href="/" class="btn btn-green btn-sm">← Back to Home</a>
+    <nav class="nav-links">
+      <a href="/#home">Home</a>
+      <a href="/#shop">Shop</a>
+      <a href="/#story">Story</a>
+      <a href="/#reviews">Reviews</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <a class="cart-btn" href="/#shop" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+      <a href="/#shop" class="btn btn-green btn-sm">Order Now</a>
+      <button class="burger" id="burgerBtn" onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -82,18 +98,67 @@
   </div>
 </main>
 
-<footer class="policy-footer">
-  <nav class="wrap policy-links">
+<footer>
+  <div class="wrap footer-top">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Bring Home Pure,<br>Fresh Flavor</h3>
+        <p>Premium mukhwas made with wholesome grain and traditional spices — an unforgettable taste for every occasion.</p>
+        <div class="subscribe">
+          <input type="email" placeholder="Enter your email">
+          <button class="btn btn-gold btn-sm" type="button">Subscribe</button>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#shop">Shop</a></li>
+          <li><a href="/#story">Story</a></li>
+          <li><a href="/#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Flavors</h5>
+        <ul>
+          <li><a href="/#shop">Golden Grains (Wheat)</a></li>
+          <li><a href="/#shop">Pearl Millet (Bajra)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <address>
+          EnjoySpoon<br>
+          Surat, Gujarat,<br>
+          India – 395013<br>
+          <a href="mailto:enjoyspoon2026@gmail.com">enjoyspoon2026@gmail.com</a>
+        </address>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://wa.me/919904739024" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-4-7.5"/><path d="M21 3l-9 9"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Enjoy Spoon. All rights reserved.</span>
+    <span class="fssai">FSSAI Lic. No. 20726022002935</span>
     <a href="/privacy-policy">Privacy Policy</a>
     <a href="/terms">Terms &amp; Conditions</a>
-    <a href="/refund-policy">Refund &amp; Return Policy</a>
+    <a href="/refund-policy">Refund &amp; Return</a>
     <a href="/shipping-policy">Shipping Policy</a>
-  </nav>
-  <div class="wrap footer-bottom">
-    <span>© 2026 EnjoySpoon. All rights reserved.</span>
-    <span class="fssai">FSSAI Lic. No. 20726022002935</span>
   </div>
+  <div class="footer-watermark">ENJOY SPOON</div>
 </footer>
+
+<!-- ============ STICKY WHATSAPP ============ -->
+<a class="wa-float" href="https://wa.me/919904739024?text=Hi%20Enjoy%20Spoon%2C%20I%20want%20to%20order%20mukhwas" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.38 4 15c0 2.12.56 4.19 1.62 6.01L4 28l7.17-1.58A12.06 12.06 0 0 0 16.04 27C22.68 27 28 21.62 28 15S22.68 3 16.04 3zm0 21.8c-1.86 0-3.68-.5-5.27-1.45l-.38-.22-4.25.94.97-4.06-.25-.4A9.7 9.7 0 0 1 6.3 15c0-5.36 4.37-9.73 9.74-9.73 5.36 0 9.7 4.37 9.7 9.73 0 5.37-4.34 9.8-9.7 9.8zm5.34-7.3c-.29-.15-1.73-.85-2-.95-.27-.1-.46-.15-.66.15-.2.29-.76.95-.93 1.14-.17.2-.34.22-.63.07-.29-.15-1.23-.45-2.35-1.44-.87-.77-1.45-1.72-1.62-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.58-.9-2.16-.24-.57-.48-.49-.66-.5h-.56c-.2 0-.51.07-.78.37-.27.29-1.02 1-1.02 2.43s1.05 2.82 1.2 3.01c.15.2 2.06 3.14 4.99 4.4.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.73-.7 1.97-1.39.24-.68.24-1.27.17-1.39-.07-.12-.27-.2-.56-.34z"/></svg>
+  <span class="wa-label">Chat with us</span>
+</a>
+
+<script src="menu.js"></script>
 
 </body>
 </html>
