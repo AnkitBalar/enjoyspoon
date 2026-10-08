@@ -44,6 +44,84 @@ function renderProducts(filter){
 }
 renderProducts('all');
 
+/* -------- Hero jar scenes: heap, falling & spilling grains -------- */
+(function initJarScenes(){
+  const scenes = [...document.querySelectorAll('.jar-scene')];
+  if(!scenes.length) return;
+  const rnd = (a,b) => a + Math.random()*(b-a);
+  const grain = (cls, vars) => {
+    const el = document.createElement('i');
+    el.className = 'g' + (cls ? ' ' + cls : '');
+    for(const k in vars) el.style.setProperty('--' + k, vars[k]);
+    return el;
+  };
+
+  scenes.forEach(scene => {
+    const layer = scene.querySelector('.grains');
+    const frag = document.createDocumentFragment();
+    const items = [];
+
+    // heap overflowing the open jar mouth
+    for(let i=0;i<90;i++){
+      const x = rnd(21,79);
+      const top = 21 - 10*(1 - Math.pow((x-50)/29,2));
+      items.push({x, y:rnd(top,23)});
+    }
+    // grains stuck on the shoulders
+    for(let i=0;i<10;i++){
+      const left = i%2===0;
+      items.push({x: left ? rnd(17,23) : rnd(77,83), y:rnd(22,30)});
+    }
+    // piles on the ground at both sides
+    [9,91].forEach(cx => {
+      for(let i=0;i<45;i++){
+        const dx = rnd(-10,10);
+        const top = 97 - 8*(1 - Math.pow(dx/10,2));
+        items.push({x:cx+dx, y:rnd(top,97)});
+      }
+    });
+    // a few scattered grains
+    for(let i=0;i<8;i++) items.push({x: i<4 ? rnd(-6,4) : rnd(96,106), y:rnd(93,99)});
+
+    items.sort((a,b)=>a.y-b.y).forEach(p =>
+      frag.appendChild(grain('', {x:p.x.toFixed(2), y:p.y.toFixed(2), r:rnd(0,180).toFixed(0)+'deg'}))
+    );
+
+    // stream falling from above into the jar
+    for(let i=0;i<16;i++){
+      frag.appendChild(grain('fall', {
+        x:rnd(44,58).toFixed(2), y:rnd(10,14).toFixed(2), r:rnd(120,540).toFixed(0)+'deg',
+        dur:rnd(1.4,2.1).toFixed(2)+'s', delay:rnd(0,2.2).toFixed(2)+'s'
+      }));
+    }
+    // overflow spilling down both sides
+    for(let i=0;i<14;i++){
+      const left = i%2===0, dir = left ? -1 : 1;
+      const sx = left ? rnd(22,28) : rnd(72,78);
+      frag.appendChild(grain('spill', {
+        sx:sx.toFixed(2), sy:'19',
+        mx:(sx + dir*rnd(6,9)).toFixed(2), my:rnd(16,19).toFixed(2),
+        x:((left ? 9 : 91) + rnd(-6,6)).toFixed(2), y:rnd(90,95).toFixed(2),
+        r:rnd(360,900).toFixed(0)+'deg',
+        dur:rnd(1.8,2.6).toFixed(2)+'s', delay:rnd(0,2.6).toFixed(2)+'s'
+      }));
+    }
+    layer.appendChild(frag);
+  });
+
+  // switch between Gehu & Bajri banners
+  const dots = [...document.querySelectorAll('.jar-dots button')];
+  let current = 0, timer;
+  const show = i => {
+    current = i;
+    scenes.forEach((s,k)=>s.classList.toggle('active', k===i));
+    dots.forEach((d,k)=>d.classList.toggle('active', k===i));
+  };
+  const start = () => { clearInterval(timer); timer = setInterval(()=>show((current+1)%scenes.length), 6500); };
+  dots.forEach((d,i)=>d.addEventListener('click', ()=>{ show(i); start(); }));
+  show(0); start();
+})();
+
 document.getElementById('tabs').addEventListener('click', e=>{
   const btn = e.target.closest('.tab');
   if(!btn) return;
