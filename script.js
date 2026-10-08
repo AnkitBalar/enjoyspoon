@@ -44,6 +44,62 @@ function renderProducts(filter){
 }
 renderProducts('all');
 
+/* -------- Hero festive slider -------- */
+(function initHeroSlider(){
+  const wrap = document.getElementById('heroSlides');
+  if(!wrap) return;
+  const slides = [...wrap.querySelectorAll('.hero-slide')];
+  const dots = [...document.querySelectorAll('#heroDots button')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let current = 0, timer;
+
+  // Diwali sky sparkles
+  const sky = wrap.querySelector('.slide-diwali .sparkles');
+  if(sky){
+    for(let i=0;i<38;i++){
+      const sp = document.createElement('i');
+      sp.className = 'spark';
+      sp.style.left = (Math.random()*100).toFixed(1) + '%';
+      sp.style.top = (Math.random()*85).toFixed(1) + '%';
+      sp.style.setProperty('--s', (6 + Math.random()*10).toFixed(0) + 'px');
+      sp.style.setProperty('--d', (1.6 + Math.random()*2.4).toFixed(2) + 's');
+      sp.style.setProperty('--delay', (Math.random()*3).toFixed(2) + 's');
+      sky.appendChild(sp);
+    }
+  }
+
+  const show = i => {
+    current = (i + slides.length) % slides.length;
+    slides.forEach((s,k)=>{
+      const on = k === current;
+      s.classList.toggle('active', on);
+      s.setAttribute('aria-hidden', on ? 'false' : 'true');
+      s.querySelectorAll('a,button').forEach(el => on ? el.removeAttribute('tabindex') : el.setAttribute('tabindex','-1'));
+    });
+    dots.forEach((d,k)=>d.classList.toggle('active', k === current));
+  };
+  const stop = () => clearInterval(timer);
+  const start = () => { stop(); if(!reduceMotion) timer = setInterval(()=>show(current + 1), 7000); };
+
+  dots.forEach((d,i)=>d.addEventListener('click', ()=>{ show(i); start(); }));
+  document.getElementById('heroPrev').addEventListener('click', ()=>{ show(current - 1); start(); });
+  document.getElementById('heroNext').addEventListener('click', ()=>{ show(current + 1); start(); });
+  wrap.addEventListener('mouseenter', stop);
+  wrap.addEventListener('mouseleave', start);
+
+  let touchX = null;
+  wrap.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; stop(); }, {passive:true});
+  wrap.addEventListener('touchend', e => {
+    if(touchX !== null){
+      const dx = e.changedTouches[0].clientX - touchX;
+      if(Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+    }
+    touchX = null; start();
+  });
+
+  show(0); start();
+})();
+
 /* -------- Hero jar scenes: heap, falling & spilling grains -------- */
 (function initJarScenes(){
   const scenes = [...document.querySelectorAll('.jar-scene')];
@@ -109,17 +165,6 @@ renderProducts('all');
     layer.appendChild(frag);
   });
 
-  // switch between Gehu & Bajri banners
-  const dots = [...document.querySelectorAll('.jar-dots button')];
-  let current = 0, timer;
-  const show = i => {
-    current = i;
-    scenes.forEach((s,k)=>s.classList.toggle('active', k===i));
-    dots.forEach((d,k)=>d.classList.toggle('active', k===i));
-  };
-  const start = () => { clearInterval(timer); timer = setInterval(()=>show((current+1)%scenes.length), 6500); };
-  dots.forEach((d,i)=>d.addEventListener('click', ()=>{ show(i); start(); }));
-  show(0); start();
 })();
 
 document.getElementById('tabs').addEventListener('click', e=>{
