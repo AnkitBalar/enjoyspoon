@@ -5,6 +5,7 @@
 const PRODUCTS = [
   {id:'p1', name:'Golden Grains', desc:'Traditional wheat crunch, ready to eat — the taste you grew up with', price:249, mrp:399, cat:'gehu', color:'#c99a3e', rating:4.9, img:'Gehu.png', sku:'ES-WHEAT-CRUNCH', meesho:'https://www.meesho.com/roasted-gehu-mukhwas-jar-wheat-mouth-freshener-snack/p/haaduc?ms=2&source=Meri+Shop'},
   {id:'p2', name:'Pearl Millet', desc:'Traditional bajra crunch, ready to eat — the taste you grew up with', price:249, mrp:399, cat:'bajri', color:'#4f7a3d', rating:4.8, img:'Bajri.png', sku:'ES-BAJRI-CRUNCH', meesho:'https://www.meesho.com/roasted-bajra-mukhwas-jar-pearl-millet-mouth-freshener-snack/p/haaduh?ms=2&source=Meri+Shop'},
+  {id:'p3', name:'Combo Pack', desc:'Both flavors in one pack — Golden Grains (wheat) + Pearl Millet (bajra). Perfect for gifting', price:449, mrp:798, cat:'combo', color:'#a67c2e', img:'Combo.png', sku:'ES-COMBO-2'},
 ];
 
 /* -------- Product icon (placeholder art, used only if a product has no photo) -------- */
@@ -32,7 +33,7 @@ function renderProducts(filter){
     <div class="product-card card-in" style="animation-delay:${i*0.08}s;">
       <div class="product-media" style="background:${p.color}14;">
         ${productMedia(p)}
-        <span class="product-rating">★ ${p.rating}</span>
+        ${p.rating ? `<span class="product-rating">★ ${p.rating}</span>` : ''}
       </div>
       <div class="product-name">${p.name}</div>
       <div class="product-desc">${p.desc}</div>
@@ -43,6 +44,10 @@ function renderProducts(filter){
   `).join('');
 }
 renderProducts('all');
+function selectShopTab(cat){
+  const tab = document.querySelector(`.tab[data-cat="${cat}"]`);
+  if(tab) tab.click();
+}
 
 /* -------- Hero festive slider -------- */
 (function initHeroSlider(){
