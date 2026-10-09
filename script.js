@@ -351,6 +351,7 @@ function openCheckout(){
   document.getElementById('cartDrawer').classList.remove('open');
   renderCheckoutSummary();
   document.getElementById('checkoutModal').classList.add('show');
+  if(window.esAuth) window.esAuth.prefillCheckout();
   document.getElementById('overlay').classList.add('show');
 }
 function renderCheckoutSummary(){
@@ -580,7 +581,7 @@ function startRazorpayPayment(){
     // generated on your server via the Razorpay Orders API.
     handler: function(response){
       showToast('Payment successful! Payment ID: ' + response.razorpay_payment_id);
-      sendOrderToGoogleSheet({
+      const order = {
         name: name,
         phone: phone,
         email: email,
@@ -594,7 +595,9 @@ function startRazorpayPayment(){
         itemsJson: itemsJson,
         amount: amount,
         paymentId: response.razorpay_payment_id
-      });
+      };
+      sendOrderToGoogleSheet(order);
+      if(window.esAuth) window.esAuth.saveOrder(order);
       cart = {};
       updateCartUI();
       closeAllOverlays();
