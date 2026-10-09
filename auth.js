@@ -34,7 +34,7 @@ const $ = id => document.getElementById(id);
     import(SDK + 'firebase-firestore.js'),
   ]);
   const { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged } = authMod;
-  const { getFirestore, doc, getDoc, setDoc, collection, addDoc, getDocs, query, orderBy, limit, serverTimestamp } = fs;
+  const { getFirestore, doc, getDoc, setDoc, collection, getDocs, query, orderBy, limit, serverTimestamp } = fs;
 
   const app = initializeApp(FIREBASE_CONFIG);
   const auth = getAuth(app);
@@ -224,7 +224,8 @@ const $ = id => document.getElementById(id);
       ['name','phone','email','houseNo','street','city','state','country','pincode'].forEach(k => addr[k] = order[k] || '');
       await Promise.all([
         saveAddress(addr),
-        addDoc(collection(db, 'users', user.uid, 'orders'), {
+        // order document id = Razorpay payment id, so the Google Sheet can update its status later
+        setDoc(doc(db, 'users', user.uid, 'orders', String(order.paymentId)), {
           items: order.items, itemsJson: order.itemsJson, amount: Number(order.amount),
           paymentId: order.paymentId, address: addr, status: 'Placed', createdAt: serverTimestamp(),
         }),

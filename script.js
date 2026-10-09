@@ -594,7 +594,8 @@ function startRazorpayPayment(){
         items: items,
         itemsJson: itemsJson,
         amount: amount,
-        paymentId: response.razorpay_payment_id
+        paymentId: response.razorpay_payment_id,
+        uid: (window.esAuth && window.esAuth.user) ? window.esAuth.user.uid : ''
       };
       sendOrderToGoogleSheet(order);
       if(window.esAuth) window.esAuth.saveOrder(order);
