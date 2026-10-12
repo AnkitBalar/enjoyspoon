@@ -849,18 +849,35 @@
     .footer-grid{grid-template-columns:1fr 1fr;}
   }
   @media(max-width:560px){
-    .wrap,.nav,.hero-inner{padding-left:20px;padding-right:20px;}
+    .wrap,.hero-inner{padding-left:20px;padding-right:20px;}
+    /* Keep the purchase actions visible and easy to reach on small screens. */
+    .nav{padding:8px 12px;gap:8px;}
+    .brand img{width:38px;height:38px;}
+    .brand-text{display:none;}
+    .nav-right{gap:6px;margin-left:auto;}
+    .nav-right .btn-sm{order:1;padding:8px 12px;font-size:.72rem;}
+    .nav-right .cart-btn{order:2;width:36px;height:36px;}
+    .nav-right .account-btn{order:3;width:36px;height:36px;}
+    .nav-right .burger{order:4;padding:4px;}
+    .nav-right .cart-btn svg,.nav-right .account-btn svg{width:18px;height:18px;}
+    .nav-right .cart-count{top:-5px;right:-5px;width:16px;height:16px;font-size:.58rem;}
     .product-grid{grid-template-columns:1fr 1fr;gap:14px;}
     .meesho-btn{font-size:.78rem;gap:4px;}
     .meesho-btn img{height:15px;}
-    .features-section{margin:0 14px;padding:44px 22px;}
-    .testimonials{margin:0 14px;padding:60px 22px;}
+    .section-pad{padding:40px 0;}
+    .head-block{margin-bottom:30px;}
+    .features-section{margin:0 14px;padding:34px 22px;}
+    .feature-cols{margin-top:30px;}
+    .showcase{padding:44px 0;}
+    .showcase-grid{gap:32px;}
+    .testimonials{margin:0 14px;padding:42px 22px;}
+    footer{margin-top:24px;}
+    .footer-top{padding:52px 0 34px;}
     .t-card{flex-basis:88%;}
     .t-nav{width:36px;height:36px;font-size:1.3rem;}
     .t-nav.prev{left:-14px;}
     .t-nav.next{right:-14px;}
     .footer-grid{grid-template-columns:1fr;}
-    .section-pad{padding:64px 0;}
     .field-row{flex-direction:column;gap:0;}
     .modal-box{padding:22px 20px;max-height:96vh;}
   }
@@ -926,9 +943,6 @@
     .product-card .add-btn,.product-card .meesho-btn{padding:9px 10px;font-size:.8rem;}
     .product-card .meesho-btn{margin-top:8px;}
     .product-rating{top:6px;right:6px;padding:3px 7px;font-size:.62rem;}
-  }
-  @media(max-width:420px){
-    .nav-right .btn-sm{display:none;}
   }
   @media(max-width:420px){
     .tabs{gap:6px;}
